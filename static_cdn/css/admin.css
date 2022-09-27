@@ -1,0 +1,169 @@
+/*h1.spe
+{
+	color: black;
+	text-align: center;
+}
+
+h2.spe
+{
+	color: black;
+	text-align: center;
+}
+*/
+/*body.spe
+{
+	margin: 0;
+	padding: 0;
+    color: white;
+	/*background: url("background.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+    font-family: 'Forum', cursive;
+}
+
+a.spe
+{
+	margin: 0;
+	padding: 0;
+    font-family: 'Forum', cursive;
+	font-size: 25px;
+}*/
+/*
+.button1
+{
+    border: none;
+    outline: none;
+    text-align: center;
+    background: darkkhaki;
+    color: black;
+    font-size: 16px;
+    font-family: 'Forum', cursive;
+    border-radius: 20px;
+    transition-duration: 0.5s;
+    
+    width: 20px%;
+    height: 30px;
+}
+
+.button2
+{
+    border: none;
+    outline: none;
+    text-align: center;
+    background: darkkhaki;
+    color: black;
+    font-size: 16px;
+    font-family: 'Forum', cursive;
+    border-radius: 20px;
+    transition-duration: 0.5s;
+    margin-left: 10px;
+    width: 20px%;
+    height: 30px;
+}
+
+.button1:hover
+{
+    background-color: #fff;
+    color: black;
+    cursor: pointer;
+}
+
+.button2:hover
+{
+    background-color: #fff;
+    color: black;
+    cursor: pointer;
+}
+*/
+/*.information
+{
+	width: 300px;
+  	height: 200px;
+  	padding: 15px;
+  	/*background-color: transparent;
+	font-size: 15px;
+	opacity: 0.8;
+  	box-shadow: 5px 5px 5px 5px black;
+	top: 40%;
+	left: 25%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	color: black;
+}
+
+.controls
+{
+	width: 300px;
+  	height: 200px;
+  	padding: 15px;
+  	/*background-color: transparent;
+	font-size: 15px;
+	opacity: 0.8;
+  	box-shadow: 5px 5px 5px 5px black;
+	top: 40%;
+	left: 75%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	color: black;*/
+}
+*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 2.5px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: darkkhaki;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px darkkhaki;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+/* Rounded sliders */
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

@@ -1,0 +1,11 @@
+{% extends 'gate_con.html' %}
+{% block title %} FMS|Gate Control {% endblock title%}
+{% block body %}
+    <form action="/door_con" method="post">
+        {%csrf_token%}
+        <li>
+            <input type="submit" value="Open Doors" name="_op" class="button1" onclick="fon()">
+            <input type="submit" value="Close Doors" name="_cl" class="button2" onclick="foff()">
+        </li>
+    </form>
+{% endblock body%}
