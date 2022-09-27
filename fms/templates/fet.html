@@ -1,0 +1,426 @@
+{% load static %}
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+        <link href="https://fonts.googleapis.com/css?family=Forum&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/FMS.png' %}"/>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <title> FMS|Fetch Data </title>
+      <style>
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+   display: block;
+}
+h1.spe
+{
+	color: black;
+	text-align: center;
+	font-weight: bold;
+}
+h6.spe
+{
+	color: black;
+	font-weight: bold;
+}
+.spe
+{
+   font-family: 'Forum', cursive;
+   font-size: 25px;
+}
+.information
+{
+	width: 300px;
+  	height: 200px;
+  	padding: 15px;
+  	background-color: transparent;
+	font-size: 15px;
+	opacity: 0.8;
+  	box-shadow: 5px 5px 5px 5px black;
+	top: 40%;
+	left: 20%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	color: black;
+}
+.data_fetch
+{
+	width: 300px;
+  	height: 200px;
+  	padding: 15px;
+  	background-color: transparent;
+	font-size: 15px;
+	opacity: 0.8;
+  	box-shadow: 5px 5px 5px 5px black;
+	top: 40%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	color: black;
+}
+.controls
+{
+	width: 300px;
+  	height: 200px;
+  	padding: 15px;
+  	background-color: transparent;
+	font-size: 15px;
+	opacity: 0.8;
+  	box-shadow: 5px 5px 5px 5px black;
+	top: 40%;
+	left: 80%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	color: black;
+}
+.bt {
+  padding: 7px 11px;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #265901;
+  border: none;
+  border-radius: 10px;
+  border:0.1em solid #000000;
+  box-shadow: 0 9px #999;
+}
+
+.bt:hover {background-color: #3e8e41}
+
+.bt:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+/* Reset Select */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #2c3e50;
+  background-image: none;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select */
+.select {
+  position: relative;
+  display: flex;
+  width: 17em;
+  height: 2.5em;
+  line-height: 2.5;
+  background: #2c3e50;
+  overflow: hidden;
+  border-radius: .25em;
+}
+select {
+  flex: 1;
+  padding: 0 .5em;
+  color: #fff;
+  cursor: pointer;
+}
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #34495e;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+.select:hover::after {
+  color: #05eef2;
+}
+/*Inputs for downloading*/
+.m {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #2c3e50;
+  background-image: none;
+}
+.m::-ms-expand {
+  display: none;
+}
+.m {
+  position: relative;
+  display: flex;
+  width: 17em;
+  height: 2.5em;
+  line-height: 2.5;
+  background: #2c3e50;
+  overflow: hidden;
+  border-radius: .25em;
+}
+.m {
+  flex: 1;
+  padding: 0 .5em;
+  color: #fff;
+  cursor: pointer;
+}
+.m::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #34495e;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+
+.m:hover::after {
+  color: #05eef2;
+}
+
+.logodisplay{
+	position: absolute;
+  	bottom: 27px;
+	right: 10px;
+	text-align: center;
+}
+
+@media only screen and (max-width: 1000px) {
+.information
+{
+	width: 275px;
+  	height: 146px;
+  	padding: 15px;
+  	background-color: transparent;
+	font-size: 15px;
+	opacity: 0.8;
+  	box-shadow: 2px 2px 2px 2px black;
+	top: 76%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	color: black;
+}
+
+.data_fetch
+{
+	width: 275px;
+  	height: 146px;
+  	padding: 15px;
+  	background-color: transparent;
+	font-size: 15px;
+	opacity: 0.8;
+  	box-shadow: 2px 2px 2px 2px black;
+	top: 52%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	color: black;
+}
+.controls
+{
+	width: 275px;
+  	height: 146px;
+  	padding: 15px;
+  	background-color: transparent;
+	font-size: 15px;
+	opacity: 0.8;
+  	box-shadow: 2px 2px 2px 2px black;
+	top: 28%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	color: black;
+}
+
+.logodisplay{
+	position: absolute;
+  	bottom: 27px;
+	right: 10px;
+	text-align: center;
+}
+h3.logodisplay1{
+font-size:9px;
+color:black;
+text_align: left;
+}
+img.logodisplay2{
+width: 60px;
+height: 30px;;
+}
+h1.sml{
+font-size:30px;
+}
+br.sml1{
+display:none;
+}
+.m {
+  position: relative;
+  display: flex;
+  width: 13em;
+  height: 1.8em;
+  line-height: 2;
+  background: #2c3e50;
+  overflow: hidden;
+  border-radius: .25em;
+}
+.select {
+  position: relative;
+  display: flex;
+  width: 13em;
+  height: 1.8em;
+  line-height: 2.5;
+  background: #2c3e50;
+  overflow: hidden;
+  border-radius: .25em;
+}
+h1.spe
+{
+	color: black;
+	text-align: center;
+	font-weight: bold;
+	font-size: 22px;
+}
+h5.s{
+font-size: 15px;
+}
+.bt {
+  padding: 7px 11px;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #265901;
+  border: none;
+  border-radius: 10px;
+  border:0.1em solid #000000;
+  box-shadow: 0 9px #999;
+}
+}
+    </style>
+  </head>
+  <body background="{% static 'images/background.jpg' %}">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">FMS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/gate_con">Admin Controls</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/fetch_data">Fetch Data</a>
+                </li>
+            </ul>
+            </div>
+            <form class="form-inline" action="/" method="post">
+                {% csrf_token %}
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">LOGOUT</button>
+            </form>
+        </nav>
+        <!-- {% if messages %}
+          {% for message in messages%}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>{{message}}</strong> You should check in on some of those fields below.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+          {% endfor %}
+        {% endif %}
+        -->
+        <br class="sml1">
+        <br class="sml1">
+        <div class="spe">
+            <h1 class="sml"><center><b>Data Fetching</b></center></h1>
+	        <div class="information">
+		        <h1 class="spe">By Date</h1>
+                <form action="/down_date_csv" method="post">
+                    {%csrf_token%}
+                    <h5 class="s"><b>Select Date:</b></h5>
+                        <center> <input type="date" name="dd" required min="2014-01-01" max="2020-01-31" class="m" placeholder="Choose Date..." id="dd"><br class="sml1">
+                        </center>
+                    <center>
+                      <input type="submit" value="Download" name="_on" class="bt"></center>
+                </form>
+
+	        </div>
+            <div class="data_fetch">
+		        <h1 class="spe">By Month</h1>
+                <form action="/down_month_csv" method="post">
+                    {%csrf_token%}
+                    <h5 class="s"><b>Select Month:</b></h5>
+                    <center><input type="month" name="mm" required min="2014-01" max="2020-01" aria-placeholder="MM-yyyy" class="m"><br class="sml1">
+                    </center>
+                    <center>
+                    <input type="submit" value="Download" name="_on" class="bt" ></center>
+                </form>
+            </div>
+            <div class="controls">
+			    <h1 class="spe">By Year</h1>
+                <form action="/down_year_csv" method="post">
+                    {%csrf_token%}
+                    <h5 class="s"><b>Select Year:</b></h5>
+                    <center>
+                        <div class="select">
+                            <select name="yy" required>
+                                <option value="">Choose..</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                                <option value="2017">2017</option>
+                                <option value="2016">2016</option>
+                                <option value="2015">2015</option>
+                                <option value="2014">2014</option>
+                            </select>
+                        </div><br class="sml1">
+                    </center>
+                    <center>
+                        <input type="submit" value="Download" name="_on" class="bt" ></center>
+                </form>
+            </div>
+        </div>
+        <div class = "logodisplay">
+		<h3 style="color: white; text-align: center;" class="logodisplay1">Weather Data powered by</h3>
+		<img src="{% static 'images/weatherapi_logo.png' %}" alt="Weather API" width="108" height="46" style = "position: center;" class="logodisplay2">
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <span class="text-light">&#169 2020 Flood Management System </span>
+            </div>
+        </footer>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>
+
